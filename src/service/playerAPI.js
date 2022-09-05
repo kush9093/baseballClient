@@ -11,7 +11,6 @@
         if(position){
         const obj = {"pitcher":"투수","cathcer":"포수","infielder":"내야수","outfielder":"외야수"};
         const response = await fetch(this.baseURL+"/list?position="+obj[position],this.getOption);
-        console.log("response",response);
         return await response.json();
     } else {
         const response = await fetch(this.baseURL+"/list",this.getOption);
