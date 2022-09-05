@@ -1,24 +1,32 @@
-import logo from './logo.svg';
 import './App.css';
+import { Fragment } from "react"
+import { Route, Routes, BrowserRouter } from "react-router-dom";
+import Header from './component/header';
+import Main from './component/main';
+import { PlayerAPI } from './service/playerAPI';
+import { RecordAPI } from './service/recordAPI';
+import PlayerList from './component/playerlist';
+import PlayerDetail from './component/playerdetail';
+
+const playerAPI = new PlayerAPI();
+const recordAPI = new RecordAPI();
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Fragment>
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Main />} />
+          <Route path="/player">
+            <Route index element={<PlayerList playerAPI={playerAPI}/>}/>
+            <Route path=":position" element={<PlayerList playerAPI={playerAPI}/>}/>
+            <Route path=":position/:pcode" element={<PlayerDetail playerAPI={playerAPI} recordAPI={recordAPI} />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+
+    </Fragment>
   );
 }
 
