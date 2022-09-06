@@ -119,7 +119,7 @@ function PlayerDetail({ playerAPI, recordAPI }) {
                         <span><h1>{cdata.summary.hit}</h1></span>
                         <span><h1>{cdata.summary.hr}</h1></span>
                         <span><h1>{cdata.summary.rbi}</h1></span>
-                        <span><h1>{cdata.summary.hra !== "NaN" && cdata.summary.hra}</h1></span>
+                        <span><h1>{cdata.summary.hra !== "NaN" && cdata.summary.hra !== ""?cdata.summary.hra:"0.000"}</h1></span>
                     </div>
                 </>}
             </div>
