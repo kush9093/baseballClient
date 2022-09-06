@@ -17,9 +17,10 @@ function Support({supportAPI}) {
         a.setHours(a.getHours()+9)
         a.setMinutes(a.getMinutes())
         let dated = a.toISOString()
-        return <div key={elm._id}>
-            <div>{dated.slice(0,10)} {dated.slice(11,16)}</div>
-            <div>{elm.comment}</div>
+        return <div style={{marginLeft:"5%",marginRight:"5%"}} key={elm._id}>
+            <div style={{color:"gray"}}>{dated.slice(0,10)} {dated.slice(11,16)}</div>
+            <div><b>{elm.comment}</b></div>
+            <hr />
         </div>
     })
 }
@@ -37,14 +38,18 @@ function Support({supportAPI}) {
 
 
     return ( <>
-    <h3>KIA 타이거즈를 사랑하는 사람들</h3>
+    <h4 style={{backgroundColor:"black",color:"white",padding:"10px"}}>KIA 타이거즈를 사랑하는 사람들</h4>
+    <div style={{marginLeft:"5%",marginRight:"5%"}}>
     <hr />
+    </div>
     <div style={{textAlign:"center"}}>
     <form onSubmit={handelSubmit}>
-    <input type="text" style={{width:"90%"}} ref={textRef}></input>
+    <input type="text" style={{width:"90%",height:"10vh"}} ref={textRef}></input>
     </form>
     </div>
+    <div style={{marginLeft:"5%",marginRight:"5%"}}>
     <hr />
+    </div>
         {arr}
     
     </> );

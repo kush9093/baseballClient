@@ -4,3 +4,23 @@
     width: 100%;
     height: 500px;
 }
+
+.detailtable th {
+    background-color: gainsboro;
+    text-align: center;
+}
+.detailtable td {
+    width: 30%;
+    padding-left: 10px;
+}
+
+.pitchertable td {
+    border: 1px solid black;
+    text-align: center;
+}
+
+.pitchertable thead  {
+    background-color: gainsboro;
+    text-align: center;
+    font-weight: bold;
+}
