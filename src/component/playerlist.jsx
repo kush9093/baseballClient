@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import Player from "./player";
 import PlayerHeader from "./playerheader";
 
 function PlayerList({ playerAPI }) {
@@ -23,17 +24,7 @@ function PlayerList({ playerAPI }) {
             let obj = { "투수": "pitcher", "포수": "cathcer", "내야수": "infielder", "외야수": "outfielder" };
             let lt = "/player" + "/" + obj[elm.position] + "/" + elm.pcode;
 
-            return <Link to={lt} key={elm.pcode} className="m-3">
-                <div className="card" style={{ width: "14rem", borderRadius:"10px" }}>
-                    <div>
-                    <img src={elm.playerImg} className="card-img-top" />
-                    <div style={{position:"absolute",bottom:"16%",left:"5%",color:"black"}}><b>NO.{elm.backnum}</b></div>
-                    </div>
-                    <div className="card-body  bg-dark text-white" style={{padding:"8px"}}>
-                        <p className="card-text">{elm.playerName}</p>
-                    </div>
-                </div>
-            </Link>
+            return <Player lt={lt} elm={elm} key={elm.pcode}/>
         })
     }
     {/* <div style={{width:"17%",display:"inline-block" ,margin:"10px"}}><div style={{ backgroundImage: "url(" + elm.playerImg + ")",
